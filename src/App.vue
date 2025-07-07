@@ -1,9 +1,14 @@
 <template>
-  <router-view />
+  <a-config-provider :locale="locale">
+    <router-view />
+  </a-config-provider>
 </template>
 
 <script setup>
-// 移除不需要的导入和组件
+import zhCN from 'ant-design-vue/es/locale/zh_CN'
+import { ref } from 'vue'
+
+const locale = ref(zhCN)
 </script>
 
 <style>

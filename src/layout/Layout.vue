@@ -395,44 +395,12 @@ div#collapsed-div{
 
 .content {
   margin: 1rem;
-  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
 .content-wrapper {
-  padding: 24px;
   min-height: calc(100vh - 200px);
-}
-
-.footer {
-  background: #f0f2f5;
-  border-top: 1px solid #e8e8e8;
-  padding: 16px 24px;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #666;
-  font-size: 14px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 16px;
-}
-
-.footer-link {
-  color: #666;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-link:hover {
-  color: #1890ff;
 }
 
 /* 响应式设计 */

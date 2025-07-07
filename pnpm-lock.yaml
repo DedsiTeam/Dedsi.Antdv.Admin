@@ -17,6 +17,9 @@ importers:
       axios:
         specifier: ^1.10.0
         version: 1.10.0
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       vue:
         specifier: ^3.5.17
         version: 3.5.17

@@ -2,12 +2,6 @@
   <div class="login-container">
     <!-- 背景装饰 -->
     <div class="background-decoration">
-      <!-- 浮动圆形 -->
-      <div class="decoration-circle circle-1"></div>
-      <div class="decoration-circle circle-2"></div>
-      <div class="decoration-circle circle-3"></div>
-      <div class="decoration-circle circle-4"></div>
-      <div class="decoration-circle circle-5"></div>
 
       <!-- 几何形状 -->
       <div class="decoration-shape square-1"></div>
@@ -262,53 +256,6 @@ const getStarStyle = (n) => {
   right: 0;
   bottom: 0;
   z-index: 0;
-}
-
-.decoration-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  animation: float 6s ease-in-out infinite;
-}
-
-.circle-1 {
-  width: 200px;
-  height: 200px;
-  top: 5%;
-  left: 5%;
-  animation-delay: 0s;
-}
-
-.circle-2 {
-  width: 150px;
-  height: 150px;
-  top: 65%;
-  right: 5%;
-  animation-delay: 2s;
-}
-
-.circle-3 {
-  width: 100px;
-  height: 100px;
-  bottom: 30%;
-  left: 30%;
-  animation-delay: 4s;
-}
-
-.circle-4 {
-  width: 180px;
-  height: 180px;
-  top: 35%;
-  right: 25%;
-  animation-delay: 1s;
-}
-
-.circle-5 {
-  width: 120px;
-  height: 120px;
-  bottom: 5%;
-  left: 60%;
-  animation-delay: 3s;
 }
 
 .decoration-shape {

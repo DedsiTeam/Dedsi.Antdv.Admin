@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import { resolve } from 'path'
 import UnoCSS from 'unocss/vite'
 
 export default defineConfig({
@@ -8,12 +8,12 @@ export default defineConfig({
     vue(),
     UnoCSS()
   ],
-  server:{
+  server: {
     port: 9099
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': resolve(__dirname, 'src')
     }
   }
 })

@@ -1,5 +1,18 @@
+// 定义菜单项的类型接口
+export interface MenuMeta {
+  title: string;
+  icon: string;
+  permissionCode: string;
+}
+
+export interface MenuItem {
+  path: string;
+  meta: MenuMeta;
+  children?: MenuItem[];
+}
+
 // 菜单路由 - 修改为多级菜单结构
-export const menuData = [
+export const menuData: MenuItem[] = [
     {
         path: '/dashboard',
         meta: { title: '仪表盘', icon: 'DashboardOutlined', permissionCode: 'dashboard:view' }

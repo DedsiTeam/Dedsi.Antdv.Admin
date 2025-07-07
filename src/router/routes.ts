@@ -1,6 +1,7 @@
+import { RouteRecordRaw } from 'vue-router'
 import Layout from "@/layout/Layout.vue";
 
-export const routes = [
+export const routes: RouteRecordRaw[] = [
     {
         path: '/login',
         name: 'Login',

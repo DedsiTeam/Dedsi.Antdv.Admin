@@ -9,7 +9,7 @@ export default defineConfig({
     UnoCSS()
   ],
   server: {
-    port: 9099
+    port: 11860
   },
   resolve: {
     alias: {

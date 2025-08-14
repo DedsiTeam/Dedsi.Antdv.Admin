@@ -1,4 +1,4 @@
-import { httpRequest } from '../utils/axiosRequest'
+import { MainServiceRequest } from '../utils/requests/mainServiceRequest.ts'
 import type {
   ApiResponse,
   DictionaryDataSelectDto,
@@ -15,7 +15,7 @@ export class DictionaryDataApi {
    * @returns 风险字典数据列表
    */
   static async getMyRiskData(): Promise<ApiResponse<DictionaryDataSelectDto[]>> {
-    return httpRequest.get('/api/SafetyEnvProtection/DictionaryData/GetMyRiskData')
+    return MainServiceRequest.get('/api/SafetyEnvProtection/DictionaryData/GetMyRiskData')
   }
 
   /**
@@ -23,7 +23,7 @@ export class DictionaryDataApi {
    * @returns 隐患字典数据列表
    */
   static async getMyHazardData(): Promise<ApiResponse<DictionaryDataSelectDto[]>> {
-    return httpRequest.get('/api/SafetyEnvProtection/DictionaryData/GetMyHazardData')
+    return MainServiceRequest.get('/api/SafetyEnvProtection/DictionaryData/GetMyHazardData')
   }
 
   /**
@@ -32,7 +32,7 @@ export class DictionaryDataApi {
    * @returns 保存结果
    */
   static async saveMyDataByRisk(data: SaveMyDataInputDto): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/DictionaryData/SaveMyDataByRisk', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/DictionaryData/SaveMyDataByRisk', data)
   }
 
   /**
@@ -41,6 +41,6 @@ export class DictionaryDataApi {
    * @returns 保存结果
    */
   static async saveMyDataByHazard(data: SaveMyDataInputDto): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/DictionaryData/SaveMyDataByHazard', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/DictionaryData/SaveMyDataByHazard', data)
   }
 }

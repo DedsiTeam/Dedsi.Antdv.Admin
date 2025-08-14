@@ -1,4 +1,4 @@
-import { httpRequest } from '../utils/axiosRequest'
+import { MainServiceRequest } from '../utils/requests/mainServiceRequest.ts'
 import type {
   ApiResponse,
   PagedResult,
@@ -22,7 +22,7 @@ export class HazardApi {
    * @returns 保存结果
    */
   static async saveToDraft(data: HazardDto): Promise<ApiResponse<string>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/SaveToDraft', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/SaveToDraft', data)
   }
 
   /**
@@ -31,7 +31,7 @@ export class HazardApi {
    * @returns 创建结果
    */
   static async create(data: HazardDto): Promise<ApiResponse<string>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/Create', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/Create', data)
   }
 
   /**
@@ -41,7 +41,7 @@ export class HazardApi {
    * @returns 修改结果
    */
   static async update(id: string, data: HazardDto): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/Hazard/Update/${id}`, data)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/Hazard/Update/${id}`, data)
   }
 
   /**
@@ -50,7 +50,7 @@ export class HazardApi {
    * @returns 隐患详情
    */
   static async get(id: string): Promise<ApiResponse<HazardDto>> {
-    return httpRequest.get(`/api/SafetyEnvProtection/Hazard/Get/${id}`)
+    return MainServiceRequest.get(`/api/SafetyEnvProtection/Hazard/Get/${id}`)
   }
 
   /**
@@ -59,7 +59,7 @@ export class HazardApi {
    * @returns 删除结果
    */
   static async delete(id: string): Promise<ApiResponse<void>> {
-    return httpRequest.get(`/api/SafetyEnvProtection/Hazard/Delete/${id}`)
+    return MainServiceRequest.get(`/api/SafetyEnvProtection/Hazard/Delete/${id}`)
   }
 
   /**
@@ -68,7 +68,7 @@ export class HazardApi {
    * @returns 分页查询结果
    */
   static async pagedQuery(params: HazardPagedInputDto): Promise<ApiResponse<PagedResult<HazardPagedRowDto>>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/PagedQuery', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/PagedQuery', params)
   }
 
   /**
@@ -77,7 +77,7 @@ export class HazardApi {
    * @returns 查询结果
    */
   static async noPagedQuery(params: Omit<HazardPagedInputDto, 'pageIndex' | 'pageSize'>): Promise<ApiResponse<HazardPagedRowDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/NoPagedQuery', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/NoPagedQuery', params)
   }
 
   /**
@@ -86,7 +86,7 @@ export class HazardApi {
    * @returns 隐患类别列表
    */
   static async getHazardTypeSelect(params: any): Promise<ApiResponse<HazardTypeSelectDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/GetHazardTypeSelect', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/GetHazardTypeSelect', params)
   }
 
   /**
@@ -95,7 +95,7 @@ export class HazardApi {
    * @returns 隐患列表
    */
   static async getListByIds(params: GetListByIdRequest): Promise<ApiResponse<HazardDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/GetListByIds', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/GetListByIds', params)
   }
 
   /**
@@ -104,7 +104,7 @@ export class HazardApi {
    * @returns 导出结果
    */
   static async hazardCanvassExcel(params: HazardPagedInputDto): Promise<ApiResponse<Blob>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/HazardcanvassExcel', params, {
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/HazardcanvassExcel', params, {
       responseType: 'blob'
     })
   }
@@ -115,7 +115,7 @@ export class HazardApi {
    * @returns 汇总数据
    */
   static async getHazardSummary(params: any): Promise<ApiResponse<any>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/GetJazardSummary', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/GetJazardSummary', params)
   }
 
   /**
@@ -124,7 +124,7 @@ export class HazardApi {
    * @returns 关联结果
    */
   static async hazardRiskRelevancy(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/HazardRiskRelevancy', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/HazardRiskRelevancy', params)
   }
 
   /**
@@ -132,7 +132,7 @@ export class HazardApi {
    * @returns 责任单位列表
    */
   static async getHazardReviewList(): Promise<ApiResponse<any[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Hazard/GetHazardReviewList')
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Hazard/GetHazardReviewList')
   }
 
   /**
@@ -142,7 +142,7 @@ export class HazardApi {
    * @returns 责任人列表
    */
   static async getPersonList(unitCode: string, params: any): Promise<ApiResponse<any[]>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/Hazard/GetPersonList?unitCode=${unitCode}`, params)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/Hazard/GetPersonList?unitCode=${unitCode}`, params)
   }
 }
 
@@ -157,7 +157,7 @@ export class HazardMapApi {
    * @returns 地图隐患数据
    */
   static async getHazardMapData(params: any): Promise<ApiResponse<HazardMapDataDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardMap/GetHazardMapData', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardMap/GetHazardMapData', params)
   }
 
   /**
@@ -166,7 +166,7 @@ export class HazardMapApi {
    * @returns 隐患关联风险数据
    */
   static async getHazardRiskData(params: any): Promise<ApiResponse<HazardRiskRelationDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardMap/GetHazardRiskData', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardMap/GetHazardRiskData', params)
   }
 }
 
@@ -181,7 +181,7 @@ export class HazardPinNumberFlowApi {
    * @returns 流程发起结果
    */
   static async initiate(hazardId: string): Promise<ApiResponse<number>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/HazardPinNumberFlow/Initiate/${hazardId}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/HazardPinNumberFlow/Initiate/${hazardId}`)
   }
 
   /**
@@ -190,7 +190,7 @@ export class HazardPinNumberFlowApi {
    * @returns 发送结果
    */
   static async send(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardPinNumberFlow/Send', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardPinNumberFlow/Send', params)
   }
 
   /**
@@ -199,7 +199,7 @@ export class HazardPinNumberFlowApi {
    * @returns 退回结果
    */
   static async crossProcessReturn(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardPinNumberFlow/CrossProcessReturn', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardPinNumberFlow/CrossProcessReturn', params)
   }
 
   /**
@@ -208,7 +208,7 @@ export class HazardPinNumberFlowApi {
    * @returns 结束结果
    */
   static async endProcess(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardPinNumberFlow/EndProcess', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardPinNumberFlow/EndProcess', params)
   }
 }
 
@@ -223,7 +223,7 @@ export class HazardReviewFlowApi {
    * @returns 流程发起结果
    */
   static async initiate(hazardId: string): Promise<ApiResponse<number>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/HazardRevirewFlow/Initiate/${hazardId}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/HazardRevirewFlow/Initiate/${hazardId}`)
   }
 
   /**
@@ -232,7 +232,7 @@ export class HazardReviewFlowApi {
    * @returns 发送结果
    */
   static async send(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardRevirewFlow/HazardSend', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardRevirewFlow/HazardSend', params)
   }
 
   /**
@@ -241,7 +241,7 @@ export class HazardReviewFlowApi {
    * @returns 退回结果
    */
   static async crossProcessReturn(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardRevirewFlow/HazardCrossProcessReturn', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardRevirewFlow/HazardCrossProcessReturn', params)
   }
 
   /**
@@ -250,6 +250,6 @@ export class HazardReviewFlowApi {
    * @returns 结束结果
    */
   static async endProcess(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardRevirewFlow/HazardEndProcess', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardRevirewFlow/HazardEndProcess', params)
   }
 }

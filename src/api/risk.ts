@@ -1,4 +1,4 @@
-import { httpRequest } from '../utils/axiosRequest'
+import { MainServiceRequest } from '../utils/requests/mainServiceRequest.ts'
 import type {
   ApiResponse,
   PagedResult,
@@ -21,7 +21,7 @@ export class RiskApi {
    * @returns 保存结果
    */
   static async saveToDraft(data: RiskDto): Promise<ApiResponse<string>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/SaveToDraft', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/SaveToDraft', data)
   }
 
   /**
@@ -30,7 +30,7 @@ export class RiskApi {
    * @returns 创建结果
    */
   static async create(data: RiskDto): Promise<ApiResponse<string>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/Create', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/Create', data)
   }
 
   /**
@@ -40,7 +40,7 @@ export class RiskApi {
    * @returns 修改结果
    */
   static async update(id: string, data: RiskDto): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/Risk/Update/${id}`, data)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/Risk/Update/${id}`, data)
   }
 
   /**
@@ -49,7 +49,7 @@ export class RiskApi {
    * @returns 删除结果
    */
   static async delete(id: string): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/Risk/Delete/${id}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/Risk/Delete/${id}`)
   }
 
   /**
@@ -58,7 +58,7 @@ export class RiskApi {
    * @returns 风险详情
    */
   static async get(id: string): Promise<ApiResponse<RiskDto>> {
-    return httpRequest.get(`/api/SafetyEnvProtection/Risk/Get/${id}`)
+    return MainServiceRequest.get(`/api/SafetyEnvProtection/Risk/Get/${id}`)
   }
 
   /**
@@ -67,7 +67,7 @@ export class RiskApi {
    * @returns 分页查询结果
    */
   static async pagedQuery(params: RiskPagedInputDto): Promise<ApiResponse<PagedResult<RiskPagedRowDto>>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/PagedQuery', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/PagedQuery', params)
   }
 
   /**
@@ -76,7 +76,7 @@ export class RiskApi {
    * @returns 查询结果
    */
   static async noPagedQuery(params: Omit<RiskPagedInputDto, 'pageIndex' | 'pageSize'>): Promise<ApiResponse<RiskPagedRowDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/NoPagedQuery', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/NoPagedQuery', params)
   }
 
   /**
@@ -85,7 +85,7 @@ export class RiskApi {
    * @returns 导出结果
    */
   static async draftExportExcel(params: RiskPagedInputDto): Promise<ApiResponse<Blob>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/DraftExportExcel', params, {
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/DraftExportExcel', params, {
       responseType: 'blob'
     })
   }
@@ -96,7 +96,7 @@ export class RiskApi {
    * @returns 风险类型列表
    */
   static async getRiskTypeSelect(params: any): Promise<ApiResponse<RiskTypeSelectDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/GetRiskTypeSelect', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/GetRiskTypeSelect', params)
   }
 
   /**
@@ -105,7 +105,7 @@ export class RiskApi {
    * @returns 汇总数据
    */
   static async getRiskSummary(params: any): Promise<ApiResponse<any>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/GetRiskSummary', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/GetRiskSummary', params)
   }
 
   /**
@@ -114,7 +114,7 @@ export class RiskApi {
    * @returns 风险列表
    */
   static async getListByIds(params: GetListByIdRequest): Promise<ApiResponse<RiskDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/GetListByIds', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/GetListByIds', params)
   }
 
   /**
@@ -123,7 +123,7 @@ export class RiskApi {
    * @returns 启用结果
    */
   static async start(id: string): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/Risk/Start/${id}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/Risk/Start/${id}`)
   }
 
   /**
@@ -132,7 +132,7 @@ export class RiskApi {
    * @returns 负责人列表
    */
   static async getRiskPerson(params: any): Promise<ApiResponse<any[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/Risk/GetRiskPerson', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/Risk/GetRiskPerson', params)
   }
 }
 
@@ -147,7 +147,7 @@ export class RiskMapApi {
    * @returns 地图风险数据
    */
   static async getRiskMapData(params: any): Promise<ApiResponse<RiskMapDataDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskMap/GetRiskMapData', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskMap/GetRiskMapData', params)
   }
 
   /**
@@ -156,7 +156,7 @@ export class RiskMapApi {
    * @returns 地图隐患数据
    */
   static async getRiskHazardMapData(params: any): Promise<ApiResponse<any[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskMap/GetRiskHazardMapData', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskMap/GetRiskHazardMapData', params)
   }
 }
 
@@ -171,7 +171,7 @@ export class RiskCancellationFlowApi {
    * @returns 流程发起结果
    */
   static async initiate(riskId: string): Promise<ApiResponse<number>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/RiskCancellationFlow/Initiate/${riskId}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/RiskCancellationFlow/Initiate/${riskId}`)
   }
 
   /**
@@ -180,7 +180,7 @@ export class RiskCancellationFlowApi {
    * @returns 发送结果
    */
   static async send(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskCancellationFlow/Send', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskCancellationFlow/Send', params)
   }
 
   /**
@@ -189,7 +189,7 @@ export class RiskCancellationFlowApi {
    * @returns 退回结果
    */
   static async crossProcessReturn(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskCancellationFlow/CrossProcessReturn', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskCancellationFlow/CrossProcessReturn', params)
   }
 
   /**
@@ -198,7 +198,7 @@ export class RiskCancellationFlowApi {
    * @returns 结束结果
    */
   static async endProcess(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskCancellationFlow/EndProcess', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskCancellationFlow/EndProcess', params)
   }
 }
 
@@ -213,7 +213,7 @@ export class RiskReviewFlowApi {
    * @returns 流程发起结果
    */
   static async initiate(riskId: string): Promise<ApiResponse<number>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/RiskReviewFlow/Initiate/${riskId}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/RiskReviewFlow/Initiate/${riskId}`)
   }
 
   /**
@@ -222,7 +222,7 @@ export class RiskReviewFlowApi {
    * @returns 发送结果
    */
   static async send(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskReviewFlow/Send', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskReviewFlow/Send', params)
   }
 
   /**
@@ -231,7 +231,7 @@ export class RiskReviewFlowApi {
    * @returns 退回结果
    */
   static async crossProcessReturn(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskReviewFlow/CrossProcessReturn', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskReviewFlow/CrossProcessReturn', params)
   }
 
   /**
@@ -240,6 +240,6 @@ export class RiskReviewFlowApi {
    * @returns 结束结果
    */
   static async endProcess(params: any): Promise<ApiResponse<void>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskReviewFlow/EndProcess', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskReviewFlow/EndProcess', params)
   }
 }

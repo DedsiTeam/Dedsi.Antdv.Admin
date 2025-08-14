@@ -1,4 +1,4 @@
-import { httpRequest } from '../utils/axiosRequest'
+import { MainServiceRequest } from '../utils/requests/mainServiceRequest.ts'
 import type {
   ApiResponse,
   MonitoringEquipmentDto,
@@ -19,7 +19,7 @@ export class MonitoringEquipmentApi {
    * @returns 监控设备详情（含直播流）
    */
   static async getByM3U8(params: GetByM3U8Request): Promise<ApiResponse<MonitoringEquipmentByM3U8Dto>> {
-    return httpRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetByM3U8', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetByM3U8', params)
   }
 
   /**
@@ -28,7 +28,7 @@ export class MonitoringEquipmentApi {
    * @returns 播放地址
    */
   static async getUrlM3u8ByCameraIndexCode(params: GetByM3U8Request): Promise<ApiResponse<string>> {
-    return httpRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetUrlM3u8ByCameraIndexCode', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetUrlM3u8ByCameraIndexCode', params)
   }
 
   /**
@@ -37,7 +37,7 @@ export class MonitoringEquipmentApi {
    * @returns 监控设备列表
    */
   static async getByRiskId(params: GetByRiskIdRequest): Promise<ApiResponse<MonitoringEquipmentDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetByRiskId', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetByRiskId', params)
   }
 
   /**
@@ -46,6 +46,6 @@ export class MonitoringEquipmentApi {
    * @returns 监控设备列表
    */
   static async getByHazardId(params: GetByHazardIdRequest): Promise<ApiResponse<MonitoringEquipmentDto[]>> {
-    return httpRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetByHazardId', params)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/MonitoringEquipment/GetByHazardId', params)
   }
 }

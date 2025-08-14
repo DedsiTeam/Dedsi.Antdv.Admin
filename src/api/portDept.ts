@@ -1,4 +1,4 @@
-import { httpRequest } from '../utils/axiosRequest'
+import { MainServiceRequest } from '../utils/requests/mainServiceRequest.ts'
 import type {
   ApiResponse,
   PortDeptTreeItem
@@ -14,7 +14,7 @@ export class PortDeptApi {
    * @returns 区域公司代码列表
    */
   static async getLevel1Codes(): Promise<ApiResponse<string[]>> {
-    return httpRequest.get('/api/SafetyEnvProtection/PortDept/Level1Codes')
+    return MainServiceRequest.get('/api/SafetyEnvProtection/PortDept/Level1Codes')
   }
 
   /**
@@ -22,6 +22,6 @@ export class PortDeptApi {
    * @returns 部门树形结构
    */
   static async getPortDeptTree(): Promise<ApiResponse<PortDeptTreeItem[]>> {
-    return httpRequest.get('/api/SafetyEnvProtection/PortDept/PortDeptTree')
+    return MainServiceRequest.get('/api/SafetyEnvProtection/PortDept/PortDeptTree')
   }
 }

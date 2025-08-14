@@ -1,4 +1,4 @@
-import { httpRequest } from '../utils/axiosRequest'
+import { MainServiceRequest } from '../utils/requests/mainServiceRequest.ts'
 import type {
   ApiResponse
 } from './types'
@@ -14,7 +14,7 @@ export class HazardReviewUnitApi {
    * @returns 创建结果
    */
   static async create(data: any): Promise<ApiResponse<string>> {
-    return httpRequest.post('/api/SafetyEnvProtection/HazardReviewUnit/Create', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/HazardReviewUnit/Create', data)
   }
 
   /**
@@ -24,7 +24,7 @@ export class HazardReviewUnitApi {
    * @returns 修改结果
    */
   static async update(id: string, data: any): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/HazardReviewUnit/Update/${id}`, data)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/HazardReviewUnit/Update/${id}`, data)
   }
 
   /**
@@ -33,7 +33,7 @@ export class HazardReviewUnitApi {
    * @returns 删除结果
    */
   static async delete(id: string): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/HazardReviewUnit/Delete/${id}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/HazardReviewUnit/Delete/${id}`)
   }
 
   /**
@@ -42,7 +42,7 @@ export class HazardReviewUnitApi {
    * @returns 单位详情
    */
   static async get(id: string): Promise<ApiResponse<any>> {
-    return httpRequest.get(`/api/SafetyEnvProtection/HazardReviewUnit/Get/${id}`)
+    return MainServiceRequest.get(`/api/SafetyEnvProtection/HazardReviewUnit/Get/${id}`)
   }
 
   /**
@@ -50,7 +50,7 @@ export class HazardReviewUnitApi {
    * @returns 我的数据列表
    */
   static async getMyData(): Promise<ApiResponse<any[]>> {
-    return httpRequest.get('/api/SafetyEnvProtection/HazardReviewUnit/GetMyData')
+    return MainServiceRequest.get('/api/SafetyEnvProtection/HazardReviewUnit/GetMyData')
   }
 }
 
@@ -65,7 +65,7 @@ export class RiskReviewUnitApi {
    * @returns 创建结果
    */
   static async create(data: any): Promise<ApiResponse<string>> {
-    return httpRequest.post('/api/SafetyEnvProtection/RiskReviewUnit/Create', data)
+    return MainServiceRequest.post('/api/SafetyEnvProtection/RiskReviewUnit/Create', data)
   }
 
   /**
@@ -75,7 +75,7 @@ export class RiskReviewUnitApi {
    * @returns 修改结果
    */
   static async update(id: string, data: any): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/RiskReviewUnit/Update/${id}`, data)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/RiskReviewUnit/Update/${id}`, data)
   }
 
   /**
@@ -84,7 +84,7 @@ export class RiskReviewUnitApi {
    * @returns 删除结果
    */
   static async delete(id: string): Promise<ApiResponse<void>> {
-    return httpRequest.post(`/api/SafetyEnvProtection/RiskReviewUnit/Delete/${id}`)
+    return MainServiceRequest.post(`/api/SafetyEnvProtection/RiskReviewUnit/Delete/${id}`)
   }
 
   /**
@@ -93,7 +93,7 @@ export class RiskReviewUnitApi {
    * @returns 单位详情
    */
   static async get(id: string): Promise<ApiResponse<any>> {
-    return httpRequest.get(`/api/SafetyEnvProtection/RiskReviewUnit/Get/${id}`)
+    return MainServiceRequest.get(`/api/SafetyEnvProtection/RiskReviewUnit/Get/${id}`)
   }
 
   /**
@@ -101,6 +101,6 @@ export class RiskReviewUnitApi {
    * @returns 我的数据列表
    */
   static async getMyData(): Promise<ApiResponse<any[]>> {
-    return httpRequest.get('/api/SafetyEnvProtection/RiskReviewUnit/GetMyData')
+    return MainServiceRequest.get('/api/SafetyEnvProtection/RiskReviewUnit/GetMyData')
   }
 }
